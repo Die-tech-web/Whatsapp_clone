@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @layer components {
+    .btn-custom {
+      @apply border-2 transition-colors;
+      border-color: #dfb346;
+    }
+    
+    .btn-custom:hover {
+      border-color: #c49d3a;
+    }
+    
+    .btn-custom.active {
+      @apply bg-orange-400 text-white;
+      border-color: #ea580c;
+    }
+  } */

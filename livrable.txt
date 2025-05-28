@@ -1,0 +1,42 @@
+Livrable 1 
+design 
+ajout de contact
+ajout de groupe
+afficher la liste de contacts
+afficher la liste des groupes
+ajout des membres d’un groupe
+
+Ajouter la fonctionnalité suivante :
+- archiver un contact
+- desarchiver un contact
+
+c'est bien mais le plus on peut letaper ou mettre direct les numero ca doit etre optionnel il faut corriger ca car quand je tape un chiffre le + apparait alors cest pas obligatoire  fait en sorte que je peut taper des letres maintenant au monde lajouyt si je tape ajouter un message derreur doit etre afficher
+
+
+function init() {
+    document.head.appendChild(additionalStyles);
+    
+    const app = document.getElementById('app');
+    if (app) {
+        app.appendChild(creerInterface());
+        console.log('Interface WhatsApp créée avec archivage des contacts!');
+    } else {
+        console.error('Élément #app non trouvé');
+    }
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+} else {
+    init();
+}
+
+
+
+echo "# Whatsapp_clone" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Die-tech-web/Whatsapp_clone.git
+git push -u origin main
