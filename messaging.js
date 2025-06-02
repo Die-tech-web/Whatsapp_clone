@@ -1,4 +1,3 @@
-// messaging.js - Système de messagerie avec validation améliorée
 
 import { MESSAGES, CONTACTS, REPONSES_AUTO, activeButtonId } from './data.js';
 import { rafraichirInterface, afficherMessageValidation } from './utils.js';
@@ -10,7 +9,6 @@ export function creerInterfaceChat(conversation) {
     );
 
     return createElement('div', { class: 'flex flex-col h-full bg-white' }, [
-        // EN-TÊTE
         createElement('div', { class: 'flex items-center p-4 border-b bg-green-50' }, [
             createElement('div', { 
                 class: `w-12 h-12 ${conversation.type === 'groupe' ? 'bg-purple-600' : 'bg-green-600'} rounded-full flex items-center justify-center text-white font-bold mr-3` 
@@ -23,7 +21,6 @@ export function creerInterfaceChat(conversation) {
             ])
         ]),
         
-        // ZONE MESSAGES
         createElement('div', { 
             id: 'zone-messages',
             class: 'flex-1 overflow-y-auto p-4 space-y-3 bg-gray-50'
@@ -34,7 +31,7 @@ export function creerInterfaceChat(conversation) {
             ])
         ] : messagesConv.map(msg => creerBulleMessage(msg))),
         
-        // ZONE SAISIE
+       
         creerZoneSaisie(conversation)
     ]);
 }
@@ -69,10 +66,10 @@ export function creerZoneSaisie(conversation) {
                     }
                 }
             }),
-            createElement('button', {
-                class: 'w-12 h-12 bg-green-500 text-white rounded-full hover:bg-green-600',
-                onClick: () => envoyerMessage(conversation)
-            }, createElement('i', { class: 'fas fa-paper-plane' }))
+            // createElement('button', {
+            //     class: 'w-12 h-12 bg-green-500 text-white rounded-full hover:bg-green-600',
+            //     onClick: () => envoyerMessage(conversation)
+            // }, createElement('i', { class: 'fas fa-paper-plane' }))
         ])
     ]);
 }
@@ -104,7 +101,7 @@ export function envoyerMessage(conversation) {
     
     input.value = '';
     
-    // Message de confirmation
+   
     afficherMessageValidation('Message envoyé avec succès', 'success');
     
     rafraichirInterface();
@@ -148,12 +145,10 @@ export function envoyerMessageDiffusion() {
         return;
     }
     
-    // Créer une interface de saisie pour le message de diffusion
     creerInterfaceSaisieDiffusion(contactsSelectionnes);
 }
 
 export function creerInterfaceSaisieDiffusion(contactsSelectionnes) {
-    // Supprimer toute interface de diffusion existante
     const existingInterface = document.getElementById('interface-diffusion');
     if (existingInterface) {
         existingInterface.remove();
@@ -222,7 +217,6 @@ export function creerInterfaceSaisieDiffusion(contactsSelectionnes) {
     
     document.body.appendChild(interfaceDiffusion);
     
-    // Focus sur le textarea
     setTimeout(() => {
         document.getElementById('message-diffusion').focus();
     }, 100);
@@ -258,10 +252,8 @@ export function envoyerDiffusion(contactsSelectionnes) {
         }, Math.random() * 3000 + 1000);
     });
     
-    // Fermer l'interface de diffusion
     document.getElementById('interface-diffusion').remove();
     
-    // Message de confirmation
     afficherMessageValidation(
         `Diffusion envoyée avec succès à ${contactsSelectionnes.length} contact(s)`, 
         'success'

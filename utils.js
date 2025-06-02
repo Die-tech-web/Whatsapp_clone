@@ -1,16 +1,12 @@
-// utils.js - Système de validation amélioré avec messages en bas
 
 import { CONTACTS } from './data.js';
 
-// Fonction pour afficher un message de validation en bas de l'écran
 export function afficherMessageValidation(message, type = 'error') {
-    // Supprimer tout message existant
     const existingMessage = document.getElementById('validation-message');
     if (existingMessage) {
         existingMessage.remove();
     }
     
-    // Créer le nouveau message
     const messageDiv = createElement('div', {
         id: 'validation-message',
         class: `fixed bottom-4 left-1/2 transform -translate-x-1/2 px-6 py-3 rounded-lg shadow-lg z-50 transition-all duration-300 ${
@@ -56,15 +52,12 @@ export function afficherMessageValidation(message, type = 'error') {
         ])
     ]);
     
-    // Ajouter le message au body
     document.body.appendChild(messageDiv);
     
-    // Animation d'entrée
     setTimeout(() => {
         messageDiv.style.transform = 'translateX(-50%) translateY(-10px)';
     }, 10);
     
-    // Suppression automatique après 4 secondes
     setTimeout(() => {
         if (document.getElementById('validation-message')) {
             messageDiv.style.opacity = '0';

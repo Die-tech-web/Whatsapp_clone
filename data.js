@@ -40,10 +40,10 @@ export const CONTACTS_ARCHIVES = [];
 export const MESSAGES = [];
 
 export const REPONSES_AUTO = [
-    "Message reçu ! 😊", 
-    "Merci pour votre message !", 
-    "Hello ! 👋", 
-    "Reçu 5/5 !", 
+    "Message reçu ", 
+    "Merci pour votre message ", 
+    "Hello ! ", 
+    "Reçu  !", 
     "À bientôt !", 
     "Message bien reçu !"
 ];
